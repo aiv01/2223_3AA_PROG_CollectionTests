@@ -19,3 +19,16 @@ void vector_add(vector_t* v, void* item) {
     v->items = realloc(v->items, sizeof(void*) * (v->count + 1));
     v->items[v->count++] = item;
 }
+
+void* vector_remove(vector_t* v, void* item){
+    for (size_t i = 0; i < v->count; i++)
+    {
+        void* current = v->items[i];
+        if(current == item){
+            v->count--;
+            return current;
+        }
+        
+    }
+    return NULL;
+}

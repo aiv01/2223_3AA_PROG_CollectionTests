@@ -12,4 +12,6 @@ void vector_free(vector_t*);
 
 void vector_add(vector_t*, void*);
 
+void* vector_remove(vector_t*, void*);
+
 #endif // VECTOR_H

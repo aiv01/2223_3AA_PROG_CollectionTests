@@ -41,3 +41,14 @@ CLOVE_TEST(VectorAddItemToOneItemVector)
     CLOVE_INT_EQ(1, *((int**)vector->items)[0]);
     CLOVE_INT_EQ(2, *((int**)vector->items)[1]);
 }
+
+CLOVE_TEST(VectorRemoveItemFromOneItemVector){
+    int item1 = 1;
+    vector_add(vector, &item1);
+
+    void* removed = vector_remove(vector, &item1);
+    CLOVE_ULLONG_EQ(0, vector->count);
+    CLOVE_PTR_EQ(&item1, removed);
+     
+}
+

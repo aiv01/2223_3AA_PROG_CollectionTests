@@ -21,14 +21,30 @@ void vector_add(vector_t* v, void* item) {
 }
 
 void* vector_remove(vector_t* v, void* item){
+    size_t position;
+    int found = 0;
     for (size_t i = 0; i < v->count; i++)
     {
         void* current = v->items[i];
         if(current == item){
-            v->count--;
-            return current;
+            position = i;
+            found = 1;
+            break;
         }
-        
     }
-    return NULL;
+
+    if (!found)
+    {
+        return NULL;
+    }
+    
+    for (size_t i = position; i < v->count - 1; i++)
+    {
+        void* next = v->items[i+1];
+        v->items[i] = next;
+    }
+    v->items[v->count - 1] = NULL;
+    v->count--;
+    
+    return item;
 }

@@ -1,5 +1,5 @@
 {
     "testSourcesPath" : "test",
-    "buildCommand" : "build.bat",
-    "testExecPath" : "bin\\test.exe"
+    "buildCommand" : "test.bat",
+    "testExecPath" : "test\\bin\\test.exe"
 }

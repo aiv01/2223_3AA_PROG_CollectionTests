@@ -6,7 +6,11 @@
 
 vector_t *vector_create_with_structure(vector_settings_t setting) {
     setting.capacity = setting.capacity ? fmin(fmax(setting.capacity, 0.1), 1) : 0.25;
-    vector_t *result = (vector_t *)malloc(sizeof(vector_t));
+    void *memory = malloc(sizeof(vector_t));
+    if (memory == NULL) {
+        return NULL;
+    }
+    vector_t *result = (vector_t *)memory;
     result->items = NULL;
     result->count = 0;
     result->size = 0;

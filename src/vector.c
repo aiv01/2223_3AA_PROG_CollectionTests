@@ -46,7 +46,7 @@ void *vector_push(vector_t *vector, void *item) {
     return vector->items[vector->count - 1];
 }
 
-void *vector_insert(vector_t *vector, void *item, unsigned int index) {
+void *vector_insert(vector_t *vector, void *item, size_t index) {
     if (index >= vector->count) {
         return vector_push(vector, item);
     }
@@ -63,7 +63,7 @@ void *vector_insert(vector_t *vector, void *item, unsigned int index) {
     return vector->items[index];
 }
 
-void *vector_get_at(vector_t *vector, unsigned int index) {
+void *vector_get_at(vector_t *vector, size_t index) {
     if (index >= vector->count) {
         return NULL;
     }
@@ -84,7 +84,7 @@ void *vector_get_last(vector_t *vector) {
     return vector->items[vector->count - 1];
 }
 
-int vector_get_index_of(vector_t *vector, void *item) {
+size_t vector_get_index_of(vector_t *vector, void *item) {
     for (size_t i = 0; i < vector->count; ++i) {
         if (vector->items[i] == item) {
             return i;
@@ -115,7 +115,7 @@ void *vector_remove(vector_t *vector, void *item) {
     return found_item;
 }
 
-void *vector_remove_at(vector_t *vector, unsigned int index) {
+void *vector_remove_at(vector_t *vector, size_t index) {
     if (index >= vector->count) {
         return NULL;
     }

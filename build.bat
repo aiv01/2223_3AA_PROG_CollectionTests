@@ -1,6 +1,7 @@
 @echo off
 
-if exist "bin" (
+if exist "bin"
+(
     RD /S /Q "bin"
 )
 
